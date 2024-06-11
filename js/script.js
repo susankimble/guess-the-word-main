@@ -74,12 +74,28 @@ const makeGuess = function(guess){
     } else {
         guessedLetters.push(guess);
         console.log(guessedLetters)
+        displayedGuesses();
+        
+        
     }
 
 
 }
 
+const displayedGuesses = function (){
 
+    guessedLettersElement.innerHTML = "";
+    for(const letter of guessedLetters){
+        const li = document.createElement("li");
+        li.innerText = letter;
+        guessedLettersElement.append(li);
+}
+}
 
+const wordInProgressUpdate = function(guessedLetters){
 
+    const wordUpper = word.toUpperCase;
+    const wordArray = wordUpper.split("");
+    console.log(wordArray)
 
+}
