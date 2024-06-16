@@ -14,6 +14,8 @@ const remainingGuessesSpan = document.querySelector(".remaining span");
 const messages = document.querySelector(".message");
 //hidden button for play again
 const playAgainButton = document.querySelector(".play-again hide");
+
+
 //starting word
 const word = "magnolia";
 //empty array for containing guesses
@@ -75,7 +77,7 @@ const makeGuess = function(guess){
         guessedLetters.push(guess);
         console.log(guessedLetters)
         displayedGuesses();
-        
+        wordInProgressUpdate(guessedLetters);
         
     }
 
@@ -96,6 +98,14 @@ const wordInProgressUpdate = function(guessedLetters){
 
     const wordUpper = word.toUpperCase;
     const wordArray = wordUpper.split("");
-    console.log(wordArray)
-
+    const revealWord = [];
+    for ( const letter of wordArray){
+        if ( guessedLetters.includes(letter)){
+            revealWord.push(letter.toUpperCase());
+        } else {
+            revealWord.push("●")
+        }
+    }
+//console.log(revealWord)
+wordInProgress.innerText = revealWord.join("");
 }
